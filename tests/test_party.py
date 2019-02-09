@@ -30,3 +30,5 @@ class TestOffice(unittest.TestCase):
     def test_getting_party_list(self):
         resp = self.client.get(path='api/v1/party', content_type='application/json')
         self.assertEqual(resp.status_code, 200)
+    
+   

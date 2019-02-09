@@ -22,6 +22,14 @@ def party_list():
         data = get_parties()
         return jsonify({'status':200,'data':data})
 
+@bp.route('/<int:id>', methods = ['GET'])
+def get_a_party(id):
+    if request.method == 'GET':
+        data = get_party(id)
+        if data == None:
+            return jsonify({"result": "failure", "error":"404", "message":"The reqested resource not found"}), 404
+        return jsonify({'status':200,'data':data})
+   
 
    
    
