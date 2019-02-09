@@ -1,5 +1,7 @@
 # politic_api
 [![Coverage Status](https://coveralls.io/repos/github/Warui-K/politic_api/badge.svg?branch=master)](https://coveralls.io/github/Warui-K/politic_api?branch=develop)
+
+
 Politico enables citizens give their mandate to politicians running for different government offices
 while building trust in the process through transparency.
 
