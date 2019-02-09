@@ -9,7 +9,8 @@ from flask import(
 #the blueprint needs to know where its defines __name__ is passed as the second argument
 bp = Blueprint('party', __name__, url_prefix='/api/v1/party')
 
-@bp.route('', methods = ['POST'])
+
+@bp.route('', methods = ['GET','POST'])
 def party_list():
    if request.method == 'POST':
         data = request.get_json()       
@@ -17,6 +18,11 @@ def party_list():
             return jsonify({"result": "failure", "error":"400", "message":"Bad Request: Ensure that your data is in JSON format"}), 400
         add_party(data)
         return jsonify({'status':201,'data':data})
+   elif request.method == 'GET':
+        data = get_parties()
+        return jsonify({'status':200,'data':data})
+
+
    
    
     
