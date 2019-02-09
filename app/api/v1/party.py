@@ -1,0 +1,24 @@
+import os , urllib.request
+import functools , json , pprint
+from .party_model import add_party , get_parties, get_party
+from flask import(
+    Blueprint, request, url_for, Response,jsonify
+)
+   
+#create a Blueprint named party
+#the blueprint needs to know where its defines __name__ is passed as the second argument
+bp = Blueprint('party', __name__, url_prefix='/api/v1/party')
+
+@bp.route('', methods = ['POST'])
+def party_list():
+   if request.method == 'POST':
+        data = request.get_json()       
+        if data == None:
+            return jsonify({"result": "failure", "error":"400", "message":"Bad Request: Ensure that your data is in JSON format"}), 400
+        add_party(data)
+        return jsonify({'status':201,'data':data})
+   
+   
+    
+
+   
